@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Specific Auction</title>
+    <link rel="stylesheet" href="../css/specificauction.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">BidMe</div>
+        <ul class="nav-links">
+            <li><a href="../html/Home.html">Home</a></li>
+            <li><a href="../html/Profile.html">Profile</a></li>
+            <li><a href="../html/CreateAuction.html">Create Auction</a></li>
+            <li><a href="../html/Login.html">Login</a></li>
+        </ul>
+    </nav>
+
+    <div class="auction-details">
+        <div class="auction-image">
+            <img id="auctionImg" src="../assets/default.jpg" alt="Item Image">
+        </div>
+        <div class="auction-info">
+            <h2 id="auctionTitle">Auction Title</h2>
+            <p id="auctionDescription">Description of the item goes here.</p>
+            <p><strong>Starting Price:</strong> <span id="startingPrice">Rs. 10,000</span></p>
+            <p><strong>Current Price:</strong> <span id="currentPrice">Rs. 12,000</span></p>
+            <p><strong>Start Time:</strong> 10:00 AM</p>
+            <p><strong>End Time:</strong> 12:00 PM</p>
+            <div class="bid-form">
+                <label for="bidAmount">Your Bid:</label>
+                <input type="number" id="bidAmount" name="bidAmount" min="0" step="1" required>
+                <button type="submit">Place Bid</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Dynamically update auction details based on URL
+        const params = new URLSearchParams(window.location.search);
+        const item = params.get("item");
+    
+        if (item === "vintage-watch") {
+            document.getElementById("auctionImg").src = "../assets/vintage.jpg";
+            document.getElementById("auctionTitle").innerText = "Vintage Watch";
+            document.getElementById("auctionDescription").innerText = "A rare vintage watch in great condition.";
+            document.getElementById("startingPrice").innerText = "Rs. 150";
+            document.getElementById("currentPrice").innerText = "Rs. 200";
+        } else if (item === "antique-painting") {
+            document.getElementById("auctionImg").src = "../assets/antique.jpg";
+            document.getElementById("auctionTitle").innerText = "Antique Painting";
+            document.getElementById("auctionDescription").innerText = "A beautiful antique painting from the 18th century.";
+            document.getElementById("startingPrice").innerText = "Rs. 300";
+            document.getElementById("currentPrice").innerText = "Rs. 400";
+        } else if (item === "luxury-bag") {
+            document.getElementById("auctionImg").src = "../assets/luxury.jpg";
+            document.getElementById("auctionTitle").innerText = "luxury-bag";
+            document.getElementById("auctionDescription").innerText = "A designer luxury bag with premium craftsmanship.";
+            document.getElementById("startingPrice").innerText = "Rs. 500";
+            document.getElementById("currentPrice").innerText = "Rs. 700";
+        }
+    </script>
+    
+
+</body>
+</html>

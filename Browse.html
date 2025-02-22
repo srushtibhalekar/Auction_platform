@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BidMe - Browse</title>
+    <link rel="stylesheet" href="../css/browse.css">
+    <script>
+        function searchAuctions() {
+            let input = document.getElementById("searchInput").value.toLowerCase();
+            let cards = document.getElementsByClassName("auction-card");
+
+            for (let i = 0; i < cards.length; i++) {
+                let title = cards[i].getElementsByClassName("auction-title")[0].innerText.toLowerCase();
+                if (title.includes(input)) {
+                    cards[i].style.display = "flex";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">BidMe</div>
+        <ul class="nav-links">
+            <li><a href="../html/Home.html">🏠 Home</a></li>
+            <li><a href="../html/Browse.html">🔍 Browse</a></li>
+            <li><a href="../html/Profile.html">👤 Profile</a></li>
+            <li><a href="../html/CreateAuction.html">🛒 Create Auction</a></li>
+            <li><a href="../html/Login.html">🔑 Login</a></li>
+        </ul>
+    </nav>
+
+    <!-- Search Bar -->
+    <div class="search-container">
+        <input type="text" id="searchInput" onkeyup="searchAuctions()" placeholder="Search for auctions...">
+        <button onclick="searchAuctions()">Search</button>
+    </div>
+
+    <!-- Browse Auctions -->
+    <div class="container">
+        <h2>🔍 Browse Auctions</h2>
+        <div class="auction-list">
+            <div class="auction-card">
+                <img src="../assets/vintage.jpg" alt="Vintage Watch" class="item-image">
+                <div class="auction-details">
+                    <h3 class="auction-title">Vintage Watch</h3>
+                    <p>Starting Price: Rs. 150</p>
+                    <a href="../html/SpecificAuction.html?item=vintage-watch" class="btn">View</a>
+                </div>
+            </div>
+
+            <div class="auction-card">
+                <img src="../assets/antique.jpg" alt="Antique Painting" class="item-image">
+                <div class="auction-details">
+                    <h3 class="auction-title">Antique Painting</h3>
+                    <p>Starting Price: Rs. 300</p>
+                    <a href="../html/SpecificAuction.html?item=antique-painting" class="btn">View</a>
+                </div>
+            </div>
+
+            <div class="auction-card">
+                <img src="../assets/luxury.jpg" alt="Luxury Handbag" class="item-image">
+                <div class="auction-details">
+                    <h3 class="auction-title">Luxury Handbag</h3>
+                    <p>Starting Price: Rs. 500</p>
+                    <a href="../html/SpecificAuction.html?item=luxury-bag" class="btn">View</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
